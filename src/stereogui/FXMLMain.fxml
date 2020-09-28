@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stereogui.FXMLMainController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="625.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#loadLeft" prefWidth="75.0" text="Load Left">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#loadRight" prefWidth="75.0" text="Load Right" />
+            <Button mnemonicParsing="false" onMouseClicked="#evtClear" prefWidth="75.0" text="Clear" />
+            <Button mnemonicParsing="false" onMouseClicked="#evtBuild" prefWidth="75.0" text="Build" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <ImageView fx:id="imgParidade" fitHeight="414.0" fitWidth="428.0" pickOnBounds="true" preserveRatio="true" smooth="false" BorderPane.alignment="CENTER" />
+   </center>
+   <right>
+      <VBox prefHeight="470.0" prefWidth="134.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="79.0" prefWidth="200.0">
+               <children>
+                  <Label text="Esquerda" />
+                  <ImageView fx:id="imgEsq" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" smooth="false" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="79.0" prefWidth="200.0">
+               <children>
+                  <Label text="Direita" />
+                  <ImageView fx:id="imgDir" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" smooth="false" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
