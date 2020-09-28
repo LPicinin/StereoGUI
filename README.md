@@ -3,7 +3,7 @@
 ## Instalação:
 
 - jdk 8
-- OpenCV 4.4(Instalar o OpenCV na pasta pacotes)
+- OpenCV 4.4 (Instalar o OpenCV na pasta pacotes)
 
 ## Links
 
