@@ -6,13 +6,10 @@
 package stereogui;
 
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,13 +32,13 @@ import org.opencv.imgcodecs.Imgcodecs;
 public class FXMLMainController implements Initializable
 {
 
-    @FXML
-    private ImageView imgParidade;
     private Image left;
     private Mat m_left;
     private Image right;
     private Mat m_right;
     private Imgcodecs imageCodecs;
+    @FXML
+    private ImageView imgParidade;
     @FXML
     private ImageView imgEsq;
     @FXML
@@ -50,8 +47,8 @@ public class FXMLMainController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        //System.out.println(Core.NATIVE_LIBRARY_NAME);
-        System.load("C:\\Users\\Luis\\Documents\\NetBeansProjects\\StereoGUI\\pacotes\\opencv\\build\\java\\x64\\" + Core.NATIVE_LIBRARY_NAME + ".dll");
+        String path = (System.getProperty("user.dir") + "\\pacotes\\opencv\\build\\java\\x64\\" + Core.NATIVE_LIBRARY_NAME + ".dll");
+        System.load(path);
         this.imageCodecs = new Imgcodecs();
 
     }
@@ -89,7 +86,7 @@ public class FXMLMainController implements Initializable
         StereoBM stereo = StereoBM.create(16, 5);
         Mat disparity = new Mat(m_left.rows(), m_left.cols(), CvType.CV_8UC1);
         stereo.compute(m_left, m_right, disparity);
-        
+
         try
         {
             Image dis = Mat2Image(disparity);
@@ -125,7 +122,7 @@ public class FXMLMainController implements Initializable
         byte ba[] = mob.toArray();
 
         BufferedImage bi = ImageIO.read(new ByteArrayInputStream(ba));
-        return SwingFXUtils.toFXImage(bi,null);
+        return SwingFXUtils.toFXImage(bi, null);
     }
 
 }
